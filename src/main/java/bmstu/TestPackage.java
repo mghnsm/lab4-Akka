@@ -30,5 +30,4 @@ public class TestPackage {
     public String getJsScript() {
         return jsScript;
     }
-
 }
