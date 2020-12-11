@@ -29,19 +29,11 @@ public class Akka extends AllDirectives {
     }
 
     private Route createRoute() {
-        return get(() ->
-                pathPrefix("getPackage", () ->
-                    path() -> {
-                        Future<Object> res = Patterns.ask();
-                        return completeOKWithFuture(res, Jackson.marshaller());
-                    }
-                    ))),
-        post(() ->
-                path("postPackage", () ->
-                        entity(Jackson.unmarshaller(TestPackage.class), testPackage -> {
-                            actorRouter.tell(testPackage, ActorRef.noSender());
-                            return complete("");
-                        })))
+        return concat(
+                get(() ->
+                        pathPrefix("", () ->
+                                path()))
+        );
     }
 
     public static void main(String[] args) throws Exception {
