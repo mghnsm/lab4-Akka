@@ -28,13 +28,7 @@ public class Akka extends AllDirectives {
         this.actorRouter = actorRouter;
     }
 
-    private Route createRoute() {
-        return concat(
-                get(() ->
-                        pathPrefix("", () ->
-                                path())
-        );
-    }
+    private Route createRoute()
 
     public static void main(String[] args) throws Exception {
         ActorSystem system = ActorSystem.create("Akka");
