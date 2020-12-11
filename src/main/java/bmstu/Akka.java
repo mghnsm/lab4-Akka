@@ -58,5 +58,6 @@ public class Akka extends AllDirectives {
                 ConnectHttp.toHost(),
                 materializer
         );
+        
     }
 }
