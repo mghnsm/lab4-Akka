@@ -18,4 +18,17 @@ public class TestPackage {
         this.jsScript = jsScript;
         this.test = test;
     }
+
+    public String getPackageId() {
+        return packageId;
+    }
+
+    public String getFunctionName() {
+        return functionName;
+    }
+
+    public String getJsScript() {
+        return jsScript;
+    }
+
 }
