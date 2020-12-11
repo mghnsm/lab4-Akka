@@ -48,7 +48,6 @@ public class Akka extends AllDirectives {
         ActorSystem system = ActorSystem.create("Akka");
         final Http http = Http.get(system);
         final ActorMaterializer materializer = ActorMaterializer.create(system);
-        //MainHttp instance = new MainHttp(system);
 
         ActorRef actorRouter = system.actorOf(Props.create(RouterActor.class, system), "actorRouter");
         Akka instance = new Akka(actorRouter);
@@ -59,7 +58,7 @@ public class Akka extends AllDirectives {
                 ConnectHttp.toHost("localhost", PORT),
                 materializer
         );
-        System.out.println("");
+        System.out.println("///////");
         System.in.read();
     }
 }
