@@ -13,4 +13,16 @@ public class TestData {
         this.name = name;
         this.expected = expected;
     }
+
+    public String getResult() {
+        return result;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getExpected() {
+        return expected;
+    }
 }
