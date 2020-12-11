@@ -4,10 +4,15 @@ import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.actor.Props;
 import akka.http.javadsl.Http;
+import akka.http.javadsl.server.AllDirectives;
 import akka.routing.RouterActor;
 import akka.stream.ActorMaterializer;
 
-public class Akka {
+public class Akka extends AllDirectives {
+    private Akka(ActorRef actorRouter) {
+        this.actorRouter = actorRouter;
+    }
+
     public static void main(String[] args) throws Exception {
         ActorSystem system = ActorSystem.create("Akka");
         final Http http = Http.get(system);
@@ -17,6 +22,6 @@ public class Akka {
         ActorRef actorRouter = system.actorOf(Props.create(RouterActor.class, system), "actorRouter");
         Akka instance = new Akka(actorRouter);
 
-        
+
     }
 }
