@@ -5,6 +5,7 @@ import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.actor.Props;
 import akka.http.javadsl.Http;
+import akka.http.javadsl.marshallers.jackson.Jackson;
 import akka.http.javadsl.model.HttpRequest;
 import akka.http.javadsl.model.HttpResponse;
 import akka.http.javadsl.server.AllDirectives;
@@ -27,10 +28,9 @@ public class Akka extends AllDirectives {
         return get(() ->
                 pathPrefix("getPackage", () ->
                         path() -> {
-                    Future<Object> res = Patterns.ask();
-                    return 
-        })
-                )
+            Future<Object> res = Patterns.ask();
+            return completeOKWithFuture(res, Jackson.marshaller());
+        }))
     }
 
     public static void main(String[] args) throws Exception {
