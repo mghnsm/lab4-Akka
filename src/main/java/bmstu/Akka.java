@@ -34,7 +34,9 @@ public class Akka extends AllDirectives {
                     ))),
         post(() ->
                 path("postPackage", () ->
-                        entity(Jackson.unmarshaller(), )))
+                        entity(Jackson.unmarshaller(TestPackage.class), testPackage -> {
+                            actorRouter.tell(testPackage, ActorRef.noSender());
+                        })))
     }
 
     public static void main(String[] args) throws Exception {
