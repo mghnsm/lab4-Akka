@@ -3,9 +3,9 @@ package bmstu;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class TestPackage {
-    private String packageID;
+    private String packageId;
     private String func;
-    private String script;
+    private String jscript;
 
     public TestPackage(@JsonProperty("")) {
 
