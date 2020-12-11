@@ -25,4 +25,12 @@ public class TestData {
     public String getExpected() {
         return expected;
     }
+
+    public void setResult(String result) {
+        this.result = result;
+    }
+
+    public void setParent(TestPackage parent) {
+        this.parent = parent;
+    }
 }
