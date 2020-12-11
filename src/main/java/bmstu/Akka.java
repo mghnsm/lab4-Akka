@@ -32,7 +32,7 @@ public class Akka extends AllDirectives {
         return concat(
                 get(() ->
                         pathPrefix("", () ->
-                                path()))
+                                path())
         );
     }
 
