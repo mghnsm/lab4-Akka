@@ -26,13 +26,15 @@ public class Akka extends AllDirectives {
 
     private Route createRoute() {
         return get(() ->
-                pathPrefix("getPackage", () -> {
+                pathPrefix("getPackage", () ->
                     path() -> {
                         Future<Object> res = Patterns.ask();
                         return completeOKWithFuture(res, Jackson.marshaller());
                     }
-                    ))
-                }
+                    ))),
+        post(() ->
+                path("postPackage", () ->
+                        entity(Jackson.unmarshaller(), )))
     }
 
     public static void main(String[] args) throws Exception {
