@@ -9,6 +9,8 @@ import akka.routing.RouterActor;
 import akka.stream.ActorMaterializer;
 
 public class Akka extends AllDirectives {
+    private ActorRef actorRouter;
+
     private Akka(ActorRef actorRouter) {
         this.actorRouter = actorRouter;
     }
@@ -21,7 +23,5 @@ public class Akka extends AllDirectives {
 
         ActorRef actorRouter = system.actorOf(Props.create(RouterActor.class, system), "actorRouter");
         Akka instance = new Akka(actorRouter);
-
-
     }
 }
