@@ -21,6 +21,7 @@ import java.util.concurrent.CompletionStage;
 import java.util.concurrent.Future;
 
 public class Akka extends AllDirectives {
+    public static final int PORT = 8080;
     private ActorRef actorRouter;
 
     private Akka(ActorRef actorRouter) {
@@ -55,7 +56,7 @@ public class Akka extends AllDirectives {
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = instance.createRoute().flow(system, materializer);
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(
                 routeFlow,
-                ConnectHttp.toHost(),
+                ConnectHttp.toHost("localhost", PORT),
                 materializer
         );
 
