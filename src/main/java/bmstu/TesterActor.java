@@ -1,13 +1,15 @@
 package bmstu;
 
+import akka.actor.AbstractActor;
 import akka.actor.ActorRef;
+import akka.japi.pf.ReceiveBuilder;
 
 import javax.script.Invocable;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 
-public class TesterActor {
+public class TesterActor extends AbstractActor {
     private ActorRef storageActor;
 
     TesterActor(ActorRef storageActor) {
@@ -31,6 +33,8 @@ public class TesterActor {
         }
         return data;
     }
-    //
-
+    @Override
+    public Receive createRecieve() {
+        return ReceiveBuilder.create().match(TestData.class, )
+    }
 }
