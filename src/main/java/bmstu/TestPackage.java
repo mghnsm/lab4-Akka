@@ -3,9 +3,10 @@ package bmstu;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class TestPackage {
+public class TestPackage implements Serializable {
     private String packageId;
     private String functionName;
     private String jsScript;
