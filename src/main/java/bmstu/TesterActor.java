@@ -22,6 +22,12 @@ public class TesterActor {
     }
 
     public TestData checkRes(TestData data) {
-        
+        try {
+
+        } catch (Exception exception) {
+
+        }
+        return data;
     }
+    
 }
