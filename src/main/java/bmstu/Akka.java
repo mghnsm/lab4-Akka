@@ -16,6 +16,7 @@ import akka.pattern.Patterns;
 import akka.routing.RouterActor;
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
+import static akka.http.javadsl.server.PathMatchers.segment;
 
 import java.util.concurrent.CompletionStage;
 import java.util.concurrent.Future;
@@ -32,7 +33,9 @@ public class Akka extends AllDirectives {
         return concat(
                 get(() ->
                         pathPrefix("getPackage", () ->
-                                path())
+                                path(segment(), (String id) -> {
+                                    Future<Object> res = Patterns.ask(actorRouter, id, )
+                                }))
 
                 )
         )
