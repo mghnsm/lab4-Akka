@@ -24,15 +24,12 @@ public class TestPackage implements Serializable {
     public String getPackageId() {
         return packageId;
     }
-
     public String getFunctionName() {
         return functionName;
     }
-
     public String getJsScript() {
         return jsScript;
     }
-
     public List<TestData> getTests() { return this.test; }
 }
 

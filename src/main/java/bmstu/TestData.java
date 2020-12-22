@@ -16,27 +16,19 @@ public class TestData {
     }
 
     public Object[] getParams() { return this.params; }
-
     public String getResult() {
         return result;
     }
-
-    public String getName() {
-        return name;
-    }
-
+    public String getName() { return name; }
     public String getExpected() {
         return expected;
     }
-
     public void setResult(String result) {
         this.result = result;
     }
-
     public void setParent(TestPackage parent) {
         this.parent = parent;
     }
-
     public TestPackage getParent() { return this.parent; }
 }
 
