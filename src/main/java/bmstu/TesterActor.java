@@ -17,7 +17,7 @@ public class TesterActor extends AbstractActor {
     }
 
     public String runTest(TestData data) throws NoSuchMethodException, ScriptException {
-        ScriptEngine engine = new ScriptEngineManager().getEngineByName();
+        ScriptEngine engine = new ScriptEngineManager().getEngineByName("");
         engine.eval(data.getParent().getJsScript());
         Invocable invocable = (Invocable) engine;
         return invocable.invokeFunction(data.getParent().getFunctionName(), data.getParams()).toString();
@@ -37,6 +37,7 @@ public class TesterActor extends AbstractActor {
     @Override
     public Receive createRecieve() {
         return ReceiveBuilder.create()
-                .match(TestData.class, message -> storageActor.tell(checkRes(message), ActorRef.noSender())).build();
+                .match(TestData.class, message -> storageActor.tell(checkRes(message), ActorRef.noSender()))
+                .build();
     }
 }
