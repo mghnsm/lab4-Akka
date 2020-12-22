@@ -29,7 +29,13 @@ public class Akka extends AllDirectives {
     }
 
     private Route createRoute() {
-        return concat
+        return concat(
+                get(() ->
+                        pathPrefix("getPackage", () ->
+                                path())
+
+                )
+        )
     }
 
     public static void main(String[] args) throws Exception {
