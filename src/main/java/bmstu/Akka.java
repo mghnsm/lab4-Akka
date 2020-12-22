@@ -23,6 +23,7 @@ import java.util.concurrent.Future;
 
 public class Akka extends AllDirectives {
     public static final int PORT = 8080;
+    public static final int TIMEOUT_MILLIS = 3000;
     private ActorRef actorRouter;
 
     private Akka(ActorRef actorRouter) {
@@ -34,7 +35,7 @@ public class Akka extends AllDirectives {
                 get(() ->
                         pathPrefix("getPackage", () ->
                                 path(segment(), (String id) -> {
-                                    Future<Object> res = Patterns.ask(actorRouter, id, )
+                                    Future<Object> res = Patterns.ask(actorRouter, id, TIMEOUT_MILLIS)
                                 }))
 
                 )
