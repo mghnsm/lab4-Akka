@@ -15,6 +15,5 @@ public class StorageActor {
             tests.add(data);
             this.storage.put(packageId, tests);
         }
-        
     }
 }
