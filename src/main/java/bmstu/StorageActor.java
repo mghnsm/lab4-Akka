@@ -20,7 +20,13 @@ public class StorageActor extends AbstractActor {
             this.storage.put(packageId, tests);
         }
     }
-    
+
+    private Request makeRes(String packageId) {
+        ArrayList<TestResult> answers = new ArrayList<>();
+        if (this.storage.containsKey(packageId)) {
+            for ()
+        }
+    }
 
     @Override
     public Receive createReceive() {
