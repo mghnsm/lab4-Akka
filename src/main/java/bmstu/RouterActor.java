@@ -10,13 +10,14 @@ import java.util.Collection;
 import java.util.Collections;
 
 public class RouterActor extends AbstractActor {
+    public static final int MAX_NR_OF_RETRIES = 4;
     private ActorRef storageActor;
     private SupervisorStrategy strategy;
     private ActorRef testerActor;
 
     RouterActor(ActorSystem sys) {
         this.storageActor = sys.actorOf(Props.create(StorageActor.class), "StorageActor");
-        this.strategy = new OneForOneStrategy(4, Duration.ofMinutes(1), Collections.singletonList(Exception.class));
+        this.strategy = new OneForOneStrategy(MAX_NR_OF_RETRIES, Duration.ofMinutes(1), Collections.singletonList(Exception.class));
         this.testerActor = sys.actorOf(new RoundRobinPool(5).withSupervisorStrategy(strategy).props(Props.create(TesterActor.class, storageActor)));
     }
 
