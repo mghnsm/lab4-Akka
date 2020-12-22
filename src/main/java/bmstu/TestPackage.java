@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 public class TestPackage implements Serializable {
     private String packageId;
@@ -30,6 +31,10 @@ public class TestPackage implements Serializable {
 
     public String getJsScript() {
         return jsScript;
+    }
+
+    public List<TestData> getTests() {
+        return this.test;
     }
 }
 
