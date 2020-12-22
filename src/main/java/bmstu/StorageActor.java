@@ -1,6 +1,7 @@
 package bmstu;
 
 import akka.actor.AbstractActor;
+import akka.japi.pf.ReceiveBuilder;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,6 +23,6 @@ public class StorageActor extends AbstractActor {
 
     @Override
     public Receive createRecieve() {
-
+        return ReceiveBuilder.create().match(TestData.class, test -> this.add(test)).match(String.class, id -> sender().tell())
     }
 }
