@@ -1,12 +1,10 @@
 package bmstu;
 
 import akka.actor.*;
-import akka.actor.dsl.Creators;
 import akka.japi.pf.ReceiveBuilder;
 import akka.routing.RoundRobinPool;
 
 import java.time.Duration;
-import java.util.Collection;
 import java.util.Collections;
 
 public class RouterActor extends AbstractActor {
