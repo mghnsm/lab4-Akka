@@ -20,6 +20,9 @@ public class RouterActor implements AbstractActor {
     }
 
     public void runTests(TestPackage testPackage) {
-
+        for (TestData test : testPackage.getTests()) {
+            test.getParent(testPackage);
+            testerActor.tell(test, ActorRef.noSender());
+        }
     }
 }
