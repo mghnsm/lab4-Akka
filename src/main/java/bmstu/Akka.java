@@ -63,7 +63,7 @@ public class Akka extends AllDirectives {
                 ConnectHttp.toHost("localhost", PORT),
                 materializer
         );
-        System.out.println("///////");
+        System.out.println("Start");
         System.in.read();
     }
 }
