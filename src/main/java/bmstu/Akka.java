@@ -35,7 +35,7 @@ public class Akka extends AllDirectives {
                 get(() ->
                         pathPrefix("getPackage", () ->
                                 path(segment(), (String id) -> {
-                                    Future<Object> res = Patterns.ask(actorRouter, id, TIMEOUT_MILLIS);
+                                    Future<Object> res = (Future<Object>) Patterns.ask(actorRouter, id, TIMEOUT_MILLIS);
                                     return completeOKWithFuture(res, Jackson.marshaller());
                                 }))),
                 post(() ->
