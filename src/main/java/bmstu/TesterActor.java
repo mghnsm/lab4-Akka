@@ -35,7 +35,7 @@ public class TesterActor extends AbstractActor {
     }
 
     @Override
-    public Receive createRecieve() {
+    public Receive createReceive() {
         return ReceiveBuilder.create()
                 .match(TestData.class, message -> storageActor.tell(checkRes(message), ActorRef.noSender()))
                 .build();
