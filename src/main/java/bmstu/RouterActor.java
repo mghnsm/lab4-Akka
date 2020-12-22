@@ -8,7 +8,7 @@ import java.time.Duration;
 import java.util.Collection;
 import java.util.Collections;
 
-public class RouterActor implements AbstractActor {
+public class RouterActor extends AbstractActor {
     private ActorRef storageActor;
     private SupervisorStrategy strategy;
     private ActorRef testerActor;
@@ -25,4 +25,6 @@ public class RouterActor implements AbstractActor {
             testerActor.tell(test, ActorRef.noSender());
         }
     }
+
+    
 }
