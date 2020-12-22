@@ -12,6 +12,7 @@ import java.util.Collections;
 public class RouterActor extends AbstractActor {
     public static final int MAX_NR_OF_RETRIES = 4;
     public static final int WORKERS_COUNT = 5;
+
     private ActorRef storageActor;
     private SupervisorStrategy strategy;
     private ActorRef testerActor;
