@@ -2,6 +2,7 @@ package bmstu;
 
 import akka.actor.*;
 import akka.actor.dsl.Creators;
+import akka.japi.pf.ReceiveBuilder;
 import akka.routing.RoundRobinPool;
 
 import java.time.Duration;
@@ -26,5 +27,11 @@ public class RouterActor extends AbstractActor {
         }
     }
 
-    
+    @Override
+    public Receive createRecieve() {
+        return ReceiveBuilder.create()
+                .match(TestPackage.class, message -> runTests(message))
+                .match(String.class, message -> storageActor.forward(message, getContext()))
+                .build();
+    }
 }
