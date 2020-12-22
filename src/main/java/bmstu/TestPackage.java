@@ -33,8 +33,6 @@ public class TestPackage implements Serializable {
         return jsScript;
     }
 
-    public List<TestData> getTests() {
-        return this.test;
-    }
+    public List<TestData> getTests() { return this.test; }
 }
 
