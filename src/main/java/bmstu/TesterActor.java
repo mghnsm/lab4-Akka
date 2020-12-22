@@ -26,9 +26,11 @@ public class TesterActor {
             String getRes = runTest(data);
             data.setResult(getRes);
         } catch (Exception exception) {
-            
+            String err = exception.toString();
+            data.setResult(err);
         }
         return data;
     }
+    //
 
 }
