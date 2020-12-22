@@ -16,10 +16,11 @@ import akka.pattern.Patterns;
 import akka.routing.RouterActor;
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
+import scala.concurrent.Future;
+
 import static akka.http.javadsl.server.PathMatchers.segment;
 
 import java.util.concurrent.CompletionStage;
-import java.util.concurrent.Future;
 
 public class Akka extends AllDirectives {
     public static final int PORT = 8080;
