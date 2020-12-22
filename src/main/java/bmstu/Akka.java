@@ -45,7 +45,7 @@ public class Akka extends AllDirectives {
                                     return complete("Start");
                                 })))
 
-                );
+        );
     }
 
     public static void main(String[] args) throws Exception {
