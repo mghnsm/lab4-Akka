@@ -35,11 +35,17 @@ public class Akka extends AllDirectives {
                 get(() ->
                         pathPrefix("getPackage", () ->
                                 path(segment(), (String id) -> {
-                                    Future<Object> res = Patterns.ask(actorRouter, id, TIMEOUT_MILLIS)
-                                }))
+                                    Future<Object> res = Patterns.ask(actorRouter, id, TIMEOUT_MILLIS);
+                                    return completeOKWithFuture(res, Jackson.marshaller());
+                                }))),
+                post(() ->
+                        path("postPackage", () ->
+                                entity(Jackson.unmarshaller(TestPackage.class), testPackage -> {
+                                    actorRouter.tell(testPackage, ActorRef.noSender());
+                                    return complete("Start");
+                                })))
 
-                )
-        )
+                );
     }
 
     public static void main(String[] args) throws Exception {
