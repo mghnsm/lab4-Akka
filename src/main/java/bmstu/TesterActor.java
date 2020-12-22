@@ -23,11 +23,12 @@ public class TesterActor {
 
     public TestData checkRes(TestData data) {
         try {
-
+            String getRes = runTest(data);
+            data.setResult(getRes);
         } catch (Exception exception) {
-
+            
         }
         return data;
     }
-    
+
 }
