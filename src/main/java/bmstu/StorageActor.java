@@ -8,6 +8,7 @@ import java.util.Map;
 
 public class StorageActor implements AbstractActor {
     private Map<String, ArrayList<TestData>> storage = new HashMap<>();
+    
     public void add(TestData data) {
         String packageId = data.getParent().getPackageId();
         if(this.storage.containsKey(packageId)) {
