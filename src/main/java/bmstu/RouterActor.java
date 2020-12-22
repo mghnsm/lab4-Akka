@@ -19,5 +19,7 @@ public class RouterActor implements AbstractActor {
         this.testerActor = sys.actorOf(new RoundRobinPool(5).withSupervisorStrategy(strategy).props(Props.create(TesterActor.class, storageActor)));
     }
 
-    
+    public void runTests(TestPackage testPackage) {
+
+    }
 }
