@@ -17,6 +17,6 @@ public class TesterActor {
         ScriptEngine engine = new ScriptEngineManager().getEngineByName();
         engine.eval(data.getParent().getJsScript());
         Invocable invocable = engine;
-        return invocable.invokeFunction(data.getParent().getFunctionName(), )
+        return invocable.invokeFunction(data.getParent().getFunctionName(), data.getParams())
     }
 }

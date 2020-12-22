@@ -3,6 +3,7 @@ package bmstu;
 import com.fasterxml.jackson.annotation.JsonCreator;
 
 public class TestData {
+    private Object[] params;
     private TestPackage parent;
     private String name;
     private String result;
@@ -13,6 +14,8 @@ public class TestData {
         this.name = name;
         this.expected = expected;
     }
+
+    public Object[] getParams() { return this.params; }
 
     public String getResult() {
         return result;
