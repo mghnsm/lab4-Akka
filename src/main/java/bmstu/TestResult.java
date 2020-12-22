@@ -16,3 +16,4 @@ public class TestResult implements Serializable {
         this.success = success;
     }
 }
+
