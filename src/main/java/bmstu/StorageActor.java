@@ -28,9 +28,4 @@ public class StorageActor extends AbstractActor {
                 .match(TestData.class, test -> this.add(test))
                 .match(String.class, id -> sender().tell());
     }
-
-    @Override
-    public Receive createReceive() {
-        return null;
-    }
 }
