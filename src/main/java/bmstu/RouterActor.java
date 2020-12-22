@@ -16,6 +16,6 @@ public class RouterActor implements AbstractActor {
     RouterActor(ActorSystem sys) {
         this.storageActor = sys.actorOf(Props.create(StorageActor.class), "StorageActor");
         this.strategy = new OneForOneStrategy(4, Duration.ofMinutes(1), Collections.singletonList(Exception.class));
-        this.testerActor = sys.actorOf(new RoundRobinPool())
+        this.testerActor = sys.actorOf(new RoundRobinPool(5, ))
     }
 }
