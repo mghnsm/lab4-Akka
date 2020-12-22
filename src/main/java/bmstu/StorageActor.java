@@ -24,7 +24,15 @@ public class StorageActor extends AbstractActor {
     private Request makeRes(String packageId) {
         ArrayList<TestResult> answers = new ArrayList<>();
         if (this.storage.containsKey(packageId)) {
-            for ()
+            for (TestData test : this.storage.get(packageId)) {
+                String result = test.getResult();
+                String correctResult = test.getExpected();
+                TestResult testResult = new TestResult(correctResult, result, result.equals(correctResult));
+                answers.add(testResult);
+            }
+            return new Request(packageId, answers);
+        } else {
+            return new Request("", answers);
         }
     }
 
@@ -33,6 +41,7 @@ public class StorageActor extends AbstractActor {
         return ReceiveBuilder
                 .create()
                 .match(TestData.class, test -> this.add(test))
-                .match(String.class, id -> sender().tell());
+                .match(String.class, id -> sender().tell(makeRes(id), self()))
+                .build();
     }
 }
