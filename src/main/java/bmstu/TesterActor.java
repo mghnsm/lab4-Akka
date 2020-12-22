@@ -36,6 +36,7 @@ public class TesterActor extends AbstractActor {
 
     @Override
     public Receive createRecieve() {
-        return ReceiveBuilder.create().match(TestData.class, )
+        return ReceiveBuilder.create()
+                .match(TestData.class, )
     }
 }
