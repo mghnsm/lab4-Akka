@@ -22,12 +22,12 @@ import static akka.http.javadsl.server.PathMatchers.segment;
 
 import java.util.concurrent.CompletionStage;
 
-public class Akka extends AllDirectives {
+public class AkkaApp extends AllDirectives {
     public static final int PORT = 8080;
     public static final int TIMEOUT_MILLIS = 3000;
     private ActorRef actorRouter;
 
-    private Akka(ActorRef actorRouter) {
+    private AkkaApp(ActorRef actorRouter) {
         this.actorRouter = actorRouter;
     }
 
@@ -55,7 +55,7 @@ public class Akka extends AllDirectives {
         final ActorMaterializer materializer = ActorMaterializer.create(system);
 
         ActorRef actorRouter = system.actorOf(Props.create(RouterActor.class, system), "actorRouter");
-        Akka instance = new Akka(actorRouter);
+        AkkaApp instance = new AkkaApp(actorRouter);
 
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = instance.createRoute().flow(system, materializer);
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(
