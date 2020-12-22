@@ -33,4 +33,6 @@ public class TestData {
     public void setParent(TestPackage parent) {
         this.parent = parent;
     }
+
+    public TestPackage getParent() { return this.parent; }
 }
