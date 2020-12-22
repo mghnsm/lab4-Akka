@@ -10,8 +10,6 @@ public class RouterActor implements AbstractActor {
 
     RouterActor(ActorSystem sys) {
         this.storageActor = sys.actorOf(Props.create(StorageActor.class), "StorageActor");
-        this.strategy = new OneForOneStrategy(
-                
-        )
+        this.strategy = new OneForOneStrategy(4, )
     }
 }
