@@ -21,5 +21,7 @@ public class TesterActor {
         return invocable.invokeFunction(data.getParent().getFunctionName(), data.getParams()).toString();
     }
 
-    
+    public TestData checkRes(TestData data) {
+        
+    }
 }
