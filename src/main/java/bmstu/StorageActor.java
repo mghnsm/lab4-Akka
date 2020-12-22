@@ -19,4 +19,9 @@ public class StorageActor extends AbstractActor {
             this.storage.put(packageId, tests);
         }
     }
+
+    @Override
+    public Receive createRecieve() {
+
+    }
 }
