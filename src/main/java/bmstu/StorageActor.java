@@ -9,9 +9,11 @@ public class StorageActor {
     public void add(TestData data) {
         String packageId = data.getParent().getPackageId();
         if(this.storage.containsKey(packageId)) {
-            this.storage.get(packageId).add(TestData);
+            this.storage.get(packageId).add(data);
         } else {
-            
+            ArrayList<TestData> tests = new ArrayList<>();
+            tests.add(data);
+            this.storage.put(packageId, tests);
         }
     }
 }
