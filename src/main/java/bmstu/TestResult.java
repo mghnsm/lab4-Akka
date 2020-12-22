@@ -2,7 +2,9 @@ package bmstu;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 
-public class TestResult {
+import java.io.Serializable;
+
+public class TestResult implements Serializable {
     private String result;
     private String expected;
     private Boolean success;
