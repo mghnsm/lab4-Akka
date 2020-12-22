@@ -40,7 +40,7 @@ public class StorageActor extends AbstractActor {
     public Receive createReceive() {
         return ReceiveBuilder
                 .create()
-                .match(TestData.class, test -> this.add(test))
+                .match(TestData.class, this::add)
                 .match(String.class, id -> sender().tell(makeRes(id), self()))
                 .build();
     }
